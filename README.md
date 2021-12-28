@@ -8,7 +8,7 @@ This is a port of the Eve Online inspired, space overview plugin I originally ma
 
 ![image](https://user-images.githubusercontent.com/13019467/147528865-da6f64e2-dc79-4779-9159-7d8ac113ef32.png)
 
-Right+click options:
+Right+click ship contextual options:
 
 ![image](https://user-images.githubusercontent.com/13019467/147528916-80999181-7f3d-44e0-88de-bd9f3b01b4bf.png)
 
