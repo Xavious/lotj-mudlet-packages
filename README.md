@@ -15,3 +15,5 @@ Right+click ship contextual options:
 The MUSHclient version was plagued by a static window that was too wide for some monitors. This version consists of a fully adjustable window and customizable width options for each field:
 
 ![image](https://user-images.githubusercontent.com/13019467/147528971-88ed99f6-a49a-4d7c-b2db-45760fd7df2a.png)
+
+Shoutout to @demonnic for his MDK/Ftext/TableMaker library, which made building the actual grid way easier: https://github.com/demonnic/MDK/wiki/fText%3A-TableMaker%3A-Examples
