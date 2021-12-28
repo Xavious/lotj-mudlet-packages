@@ -7,8 +7,10 @@ A place to keep my Mudlet packages
 This is a port of the Eve Online inspired, space overview plugin I originally made for MUSHclient.
 
 ![image](https://user-images.githubusercontent.com/13019467/147528865-da6f64e2-dc79-4779-9159-7d8ac113ef32.png)
-![image](https://user-images.githubusercontent.com/13019467/147528888-3f97c17a-ba66-4a75-af13-138df9546af5.png)
+
 Right+click options:
+
 ![image](https://user-images.githubusercontent.com/13019467/147528916-80999181-7f3d-44e0-88de-bd9f3b01b4bf.png)
 Customize field sizes:
+
 ![image](https://user-images.githubusercontent.com/13019467/147528971-88ed99f6-a49a-4d7c-b2db-45760fd7df2a.png)
