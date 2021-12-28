@@ -12,6 +12,6 @@ Right+click options:
 
 ![image](https://user-images.githubusercontent.com/13019467/147528916-80999181-7f3d-44e0-88de-bd9f3b01b4bf.png)
 
-The MUSHclient version was plagued by a static window that was too wide for some monitors. This version consists of a fully adjustable window and customize width options for each field:
+The MUSHclient version was plagued by a static window that was too wide for some monitors. This version consists of a fully adjustable window and customizable width options for each field:
 
 ![image](https://user-images.githubusercontent.com/13019467/147528971-88ed99f6-a49a-4d7c-b2db-45760fd7df2a.png)
