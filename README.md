@@ -18,3 +18,9 @@ The MUSHclient version was plagued by a static window that was too wide for some
 
 ### Acknowledgements
 Shoutout to @demonnic for his MDK/Ftext/TableMaker library, which made building the actual grid way easier: https://github.com/demonnic/MDK/wiki/fText%3A-TableMaker%3A-Examples
+
+## DataNet
+
+A tabulated browser for viewing DataNet pages
+
+![ezgif-7-0a4b81e84d](https://user-images.githubusercontent.com/13019467/149590006-f1967ffc-ac2d-426f-bba5-4e9898ae43a3.gif)
