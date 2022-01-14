@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<TriggerPackage>
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>datanetLink</name>
+			<script>datanet.link = matches[1]
+selectString(matches[1], 1)
+setUnderline(true)
+setPopup("main", {[[send("datanet ]] ..datanet.link .. [[")]], [[datanet.addTab() send("datanet ]]..datanet.link..[[")]]}, {datanet.link, "Open link in new tab"})</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>(?:("\w+.*?\w+"|';\w+.*?\w+'|\w+?)?):(\/(?:(\w|\d|_)+?\/?)+)</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>1</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>getData</name>
+			<script>selectCurrentLine()
+copy()
+datanet.menu[datanet.menu.current.."console"]:appendBuffer()</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>(.*)</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>1</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>enableGetData</name>
+			<script>datanet.menu[datanet.menu.current.."console"]:clear()
+enableTrigger('getData')
+disableTrigger('enableGetData')</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>Rewriting as datanet -c (.*)</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>1</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>disableGetData</name>
+			<script>moveCursor("datanet.menu."..datanet.menu.current..".console", 0, 0)
+datanet.menu.tabs[datanet.menu.current] = getCurrentLine("datanet.menu."..datanet.menu.current..".console")
+datanet.load()
+moveCursorEnd("datanet.menu."..datanet.menu.current..".console")
+disableTrigger("getData")
+enableTrigger('enableGetData')</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>Last modified: [\w]+ [\w]+ [\d]+, [\d]+ [\d:]+ [\w]+ [\w]+</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>1</integer>
+			</regexCodePropertyList>
+		</Trigger>
+	</TriggerPackage>
+	<TimerPackage />
+	<AliasPackage>
+		<Alias isActive="yes" isFolder="no">
+			<name>hideData</name>
+			<script>datanet.container:hide()</script>
+			<command></command>
+			<packageName></packageName>
+			<regex>^hidedata$</regex>
+		</Alias>
+		<Alias isActive="yes" isFolder="no">
+			<name>showData</name>
+			<script>datanet.container:show()</script>
+			<command></command>
+			<packageName></packageName>
+			<regex>^showdata$</regex>
+		</Alias>
+	</AliasPackage>
+	<ActionPackage />
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>datanet</name>
+			<packageName></packageName>
+			<script>datanet = {}
+datanet.font_size = 12
+datanet.menu = {}
+datanet.menu.x = {}
+datanet.menu.a = {}
+datanet.menu.tabs = {"tab1"}
+datanet.menu.current = 1
+datanet.menu.adjLabelstyle = [[
+  border: 1px solid rgb(32,34,37);
+  background-color: rgb(54, 57, 63);
+]]
+datanet.menu.buttonStyle = [[
+  QLabel{ background-color: rgba(32,34,37,100%);}
+  QLabel::hover{ background-color: rgba(40,43,46,100%);}
+]]
+datanet.menu.buttonFontSize = 10
+
+datanet.button_style =[[
+  QLabel{background-color: rgba(88,101,242,100%)}
+  QLabel::hover{ background-color: rgba(71,82,196,100%);}
+  color: rgb(216,217,218)
+  margin-right: 1px;
+  margin-left: 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+]]
+datanet.button_style_x =[[
+  QLabel{background-color: rgba(88,101,242,100%)}
+  QLabel::hover{ background-color: rgba(231,70,56,100%);}
+  color: rgb(216,217,218)
+  margin-right: 1px;
+  margin-left: 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+]]
+
+datanet.button_style_a = [[
+  QLabel{background-color: rgba(88,101,242,100%)}
+  QLabel::hover{ background-color: rgba(70,196,110,100%);}
+  color: rgb(216,217,218)
+  margin-right: 1px;
+  margin-left: 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+]]
+datanet.input_style =[[
+  QPlainTextEdit{
+    border: 1px solid rgb(32,34,37);
+    background-color: rgb(64,68,75);
+    font: bold 12pt "Arial";
+    color: rgb(255,255,255);
+  }
+]]
+datanet.label_style =[[
+  border: 1px solid rgb(32,34,37);
+  background-color: rgb(47,49,54);
+  font: bold 20pt "Arial";
+  color: rgb(0,0,0);
+  qproperty-alignment: 'AlignVCenter|AlignRight';
+]]
+
+datanet.container = Adjustable.Container:new({
+  name = "datanet_container",
+  titleText = "DataNet",
+  titleTxtColor = "white",
+  x = "50%", y = "50%",
+  width = "40%", height = "60%",
+  adjLabelstyle = datanet.menu.adjLabelstyle,
+  buttonstyle = datanet.menu.buttonStyle,
+  buttonFontSize = 10,
+  buttonsize = 20,
+  padding = 10
+})
+
+function datanet.load()
+
+  datanet.menu.header = Geyser.HBox:new({
+    name = "datamem.menu.header",
+    x = 0, y = "3%",
+    width = "100%", height = "5%" 
+  }, datanet.container)
+  
+  datanet.menu.footer = Geyser.Container:new({
+    name = "datamem.menu.footer",
+    x = 0, y = "8%",
+    width = "100%",
+    height = "90%"
+  },datanet.container)
+  
+  for k,v in pairs(datanet.menu.tabs) do
+    datanet.menu[k.."tab"] = Geyser.Label:new({
+      name = "datanet.menu."..k..".tab",
+    }, datanet.menu.header)
+    datanet.menu[k.."tab"]:setStyleSheet(datanet.button_style)
+    datanet.menu[k.."tab"]:echo("&lt;center&gt;"..v)
+    datanet.menu[k.."tab"]:setClickCallback("datanet.menu.click",k)
+    
+    if k ~= 1 then
+      datanet.menu[k.."tabx"] = Geyser.Label:new({
+        x = "-15px", y = 0,
+        width = "15px",
+        height = "100%",
+        name = "datanet.menu."..k..".tabx",
+        message = "X"
+      }, datanet.menu[k.."tab"])
+      datanet.menu[k.."tabx"]:setStyleSheet(datanet.button_style_x)
+      datanet.menu[k.."tabx"]:setClickCallback("datanet.menu.x.click",k)  
+    else
+      datanet.menu[k.."taba"] = Geyser.Label:new({
+        x = "-15px", y = 0,
+        width = "15px",
+        height = "100%",
+        name = "datanet.menu."..k..".taba",
+        message = "+"
+      }, datanet.menu[k.."tab"])
+      datanet.menu[k.."taba"]:setStyleSheet(datanet.button_style_a)
+      datanet.menu[k.."taba"]:setClickCallback("datanet.menu.a.click",k)
+    end
+    
+    datanet.menu[k] = Geyser.Container:new({
+      name = "datanet.menu."..k,
+      x = 0, y = 0,
+      width = "100%",
+      height = "100%",
+    }, datanet.menu.footer)
+    
+    datanet.menu[k.."console"] = Geyser.MiniConsole:new({
+      name = "datanet.menu."..k..".console",
+      x = 0, y = 0,
+      width = "100%", height = "100%",
+      autoWrap = true,
+      color = "black",
+      scrollBar = true,
+      fontSize = datanet.font_size,
+    }, datanet.menu[k])
+    
+    datanet.menu[k]:hide()
+  end
+  
+  datanet.menu[datanet.menu.current]:show()
+  
+end
+
+function datanet.menu.click(key)
+  datanet.menu[datanet.menu.current]:hide()
+  datanet.menu.current = key
+  datanet.menu[datanet.menu.current]:show()
+end
+
+function datanet.menu.x.click(key)
+  datanet.menu.tabs[key] = nil
+  datanet.menu[key]:hide()
+  datanet.menu[key] = nil
+  datanet.menu[key.."tab"]:hide()
+  datanet.menu[key.."tab"] = nil
+  datanet.menu[key.."taba"] = nil
+  datanet.menu[key.."tabx"] = nil
+  datanet.menu[key.."console"]:clear()
+  datanet.menu[key.."console"] = nil
+  
+  if key == datanet.menu.current then
+    local tab = 1
+    for k,v in pairs(datanet.menu.tabs) do
+      if k &gt; tab then
+        tab = k
+      end
+    end
+    datanet.menu.current = tab
+  end
+  datanet.load()
+end
+
+function datanet.menu.a.click()
+  datanet.addTab()
+end
+
+function datanet.addTab()
+  table.insert(datanet.menu.tabs, "tab".. #datanet.menu.tabs + 1)
+  datanet.menu.current = #datanet.menu.tabs
+  datanet.load()
+end
+
+datanet.load()</script>
+			<eventHandlerList />
+		</Script>
+	</ScriptPackage>
+	<KeyPackage />
+	<VariablePackage>
+		<HiddenVariables />
+	</VariablePackage>
+</MudletPackage>
