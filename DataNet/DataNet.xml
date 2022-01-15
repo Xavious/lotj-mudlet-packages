@@ -232,6 +232,7 @@ function datanet.load()
     datanet.menu[k.."tab"]:setStyleSheet(datanet.button_style)
     datanet.menu[k.."tab"]:echo("&lt;center&gt;"..v)
     datanet.menu[k.."tab"]:setClickCallback("datanet.menu.click",k)
+    datanet.menu[k.."tab"]:show()
     
     if k ~= 1 then
       datanet.menu[k.."tabx"] = Geyser.Label:new({
