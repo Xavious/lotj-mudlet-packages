@@ -59,6 +59,7 @@ end</script>
 else
   datanet.menu[datanet.menu.current.."console"]:clear()
 end
+cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Page loaded. Toggle window display with &lt;yellow&gt;showdata&lt;reset&gt; and &lt;yellow&gt;hidedata&lt;reset&gt;")
 enableTrigger('getData')
 disableTrigger('enableGetData')</script>
 			<triggerType>0</triggerType>
@@ -93,7 +94,8 @@ else
   moveCursorEnd("datanet.menu."..datanet.menu.current..".console")
 end
 disableTrigger("getData")
-enableTrigger('enableGetData')</script>
+enableTrigger('enableGetData')
+datanet.container:show()</script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
 			<mStayOpen>0</mStayOpen>
@@ -322,7 +324,8 @@ function datanet.addTab(new)
   datanet.load()
 end
 
-datanet.load()</script>
+datanet.load()
+datanet.container:hide()</script>
 			<eventHandlerList />
 		</Script>
 	</ScriptPackage>
