@@ -1,3 +1,4 @@
 mpackage = [[SpaceHud]]
 author = [[Xavious]]
-created = "2022-01-13T16:03:47-05:00"
+description = [[An Eve Online inspired spreadsheet view of ships in space.]]
+created = "2022-01-16T20:30:43-05:00"

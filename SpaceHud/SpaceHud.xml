@@ -521,7 +521,7 @@
  /        \  |_&gt; &gt; __ \\  \__\  ___/\    Y    /  |  / /_/ | 
 /_______  /   __(____  /\___  &gt;___  &gt;\___|_  /|____/\____ | 
         \/|__|       \/     \/    \/       \/            \/ 
-                    A Mudlet plugin for Legends of the Jedi
+                   A Mudlet package for Legends of the Jedi
                                         Created By: Xavious
 -----------------------------------------------------------
                      STANDARD COMMANDS
@@ -549,6 +549,7 @@ end
 
 function showSpace()
   spacehud.container:show()
+  spacehud.container:raiseAll()
 end
 
 function hideSpace()
@@ -1145,7 +1146,7 @@ spacehud.my_ship = spacehud.my_ship or {}
 spacehud.input = spacehud.input or {}
 spacehud.label = spacehud.label or {}
 spacehud.sort_by = spacehud.sort_by or "proximity"
-spacehud.sort_by_invert = spacehud.sort_by_invert or 1
+spacehud.sort_by_invert = spacehud.sort_by_invert or -1
 spacehud.type_width = spacehud.type_width or 35
 spacehud.name_width = spacehud.name_width or 25
 spacehud.xyz_width = spacehud.xyz_width or 10
@@ -1319,7 +1320,7 @@ spacehud.input.velocity:setStyleSheet(spacehud.input_style)
 spacehud.settings_container:hide()
 
 updateHud()
-spacehud.container:show()</script>
+spacehud.container:hide()</script>
 			<eventHandlerList />
 		</Script>
 	</ScriptPackage>

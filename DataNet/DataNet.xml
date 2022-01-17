@@ -95,7 +95,8 @@ else
 end
 disableTrigger("getData")
 enableTrigger('enableGetData')
-datanet.container:show()</script>
+datanet.container:show()
+datanet.container:raiseAll()</script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
 			<mStayOpen>0</mStayOpen>
@@ -108,9 +109,11 @@ datanet.container:show()</script>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
 				<string>Last modified: [\w]+ [\w]+ [\d]+, [\d]+ [\d:]+ [\w]+ [\w]+</string>
+				<string>0 items found</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>
+				<integer>0</integer>
 			</regexCodePropertyList>
 		</Trigger>
 	</TriggerPackage>
@@ -125,7 +128,8 @@ datanet.container:show()</script>
 		</Alias>
 		<Alias isActive="yes" isFolder="no">
 			<name>showData</name>
-			<script>datanet.container:show()</script>
+			<script>datanet.container:show()
+datanet.container:raiseAll()</script>
 			<command></command>
 			<packageName></packageName>
 			<regex>^showdata$</regex>
@@ -142,7 +146,9 @@ datanet.menu = {}
 datanet.menu.x = {}
 datanet.menu.a = {}
 datanet.menu.tabs = {""}
+datanet.menu.count = 1
 datanet.menu.current = 1
+datanet.menu.last = 1
 datanet.menu.adjLabelstyle = [[
   border: 1px solid rgb(32,34,37);
   background-color: rgb(54, 57, 63);
@@ -155,6 +161,15 @@ datanet.menu.buttonFontSize = 10
 
 datanet.button_style =[[
   QLabel{background-color: rgba(88,101,242,100%)}
+  QLabel::hover{ background-color: rgba(71,82,196,100%);}
+  color: rgb(216,217,218)
+  margin-right: 1px;
+  margin-left: 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+]]
+datanet.button_style_clicked =[[
+  QLabel{background-color: rgba(71,82,196,100%)}
   QLabel::hover{ background-color: rgba(71,82,196,100%);}
   color: rgb(216,217,218)
   margin-right: 1px;
@@ -275,26 +290,33 @@ function datanet.load()
     
     datanet.menu[k]:hide()
   end
-  
+  datanet.menu.setCurrent(datanet.menu.current)
   datanet.menu[datanet.menu.current]:show()
   
 end
 
-function datanet.menu.click(key)
+function datanet.menu.setCurrent(key)
   datanet.menu[datanet.menu.current]:hide()
+  datanet.menu[datanet.menu.current.."tab"]:setStyleSheet(datanet.button_style)
+  datanet.menu[key.."tab"]:setStyleSheet(datanet.button_style_clicked)
+  datanet.menu.last = datanet.menu.current
   datanet.menu.current = key
   datanet.menu[datanet.menu.current]:show()
 end
-
-function datanet.getLastIndex(table)
-  local largest = 1
-  for k,v in pairs(table) do
-    largest = k &gt; largest and k or largest
-  end
-  return largest
+  
+function datanet.menu.click(key)
+  datanet.menu.setCurrent(key)
 end
 
 function datanet.menu.x.click(key)
+  if key == datanet.menu.current then
+    if datanet.menu.tabs[datanet.menu.last] ~= nil and datanet.menu.current ~= datanet.menu.last then
+      datanet.menu.setCurrent(datanet.menu.last)
+    else
+      datanet.menu.setCurrent(1)
+    end
+  end
+
   datanet.menu.tabs[key] = nil
   datanet.menu[key]:hide()
   datanet.menu[key] = nil
@@ -303,12 +325,9 @@ function datanet.menu.x.click(key)
   datanet.menu[key.."taba"] = nil
   datanet.menu[key.."tabx"] = nil
   datanet.menu[key.."console"]:clear()
+  datanet.menu[key.."console"]:hide()
   datanet.menu[key.."console"] = nil
   
-  if key == datanet.menu.current then
-    local tab = datanet.getLastIndex(datanet.menu.tabs)
-    datanet.menu.current = tab
-  end
   datanet.load()
 end
 
@@ -317,10 +336,10 @@ function datanet.menu.a.click()
 end
 
 function datanet.addTab(new)
-  local tab = datanet.getLastIndex(datanet.menu.tabs)
-  table.insert(datanet.menu.tabs, tab + 1, "")
+  datanet.menu.count = datanet.menu.count + 1
+  table.insert(datanet.menu.tabs, datanet.menu.count, "")
   if new ~= nil then
-    datanet.menu.new = tab + 1
+    datanet.menu.new = datanet.menu.count
   end
   datanet.load()
 end
