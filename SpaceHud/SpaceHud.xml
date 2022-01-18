@@ -1192,6 +1192,7 @@ spacehud.container = Adjustable.Container:new({
   titleText = "SpaceHud",
   width = "45%",
   height = "50%",
+  x = "-45%", y = "0%",
   adjLabelstyle = spacehud.menu.adjLabelstyle,
   buttonstyle = spacehud.menu.buttonStyle,
   buttonFontSize = 10,
@@ -1217,7 +1218,7 @@ spacehud.settings_button = Geyser.Label:new({
 spacehud.settings_button:setStyleSheet(spacehud.button_style)
 spacehud.settings_button:setClickCallback("clickSettings")
 
-spacehud.settings_container = Adjustable.Container:new2({
+spacehud.settings_container = Adjustable.Container:new({
   x="33%", y="20%",
   name = "spacehud_settings",
   --width = "35%", height = "35%",
