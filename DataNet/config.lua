@@ -1,4 +1,6 @@
 mpackage = [[DataNet]]
 author = [[Xavious]]
-description = [[A tabulated browser window for viewing datanet entries]]
-created = "2022-01-18T13:02:28-08:00"
+description = [[A tabulated browser window for viewing datanet entries
+
+Commands: "showdata" and "hidedata"]]
+created = "2023-03-12T00:03:25-05:00"

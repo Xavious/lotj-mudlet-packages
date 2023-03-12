@@ -109,11 +109,11 @@ datanet.container:raiseAll()</script>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
 				<string>Last modified: [\w]+ [\w]+ [\d]+, [\d]+ [\d:]+ [\w]+ [\w]+</string>
-				<string>0 items found</string>
+				<string>[\d]+ items found</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>
-				<integer>0</integer>
+				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
 	</TriggerPackage>
