@@ -25,7 +25,7 @@ setPopup("main", {[[send("datanet ]] ..datanet.link .. [[")]], [[datanet.addTab(
 				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
-		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>getData</name>
 			<script>selectCurrentLine()
 copy()
@@ -52,7 +52,7 @@ end</script>
 				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
-		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>enableGetData</name>
 			<script>if datanet.menu.new ~= nil then
   datanet.menu[datanet.menu.new.."console"]:clear()
@@ -111,10 +111,12 @@ datanet.container:raiseAll()</script>
 				<string>Last modified: [\w]+ [\w]+ [\d]+, [\d]+ [\d:]+ [\w]+ [\w]+</string>
 				<string>[\d]+ items found</string>
 				<string>Your datapad is out of charge.</string>
+				<string>You need a datapad!</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>
 				<integer>1</integer>
+				<integer>0</integer>
 				<integer>0</integer>
 			</regexCodePropertyList>
 		</Trigger>
