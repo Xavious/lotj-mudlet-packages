@@ -769,7 +769,9 @@ function triggerFleetRadar()
   spacehud.ship_candidates[matches.ship_name].x = matches.ship_x
   spacehud.ship_candidates[matches.ship_name].y = matches.ship_y
   spacehud.ship_candidates[matches.ship_name].z = matches.ship_z
-  spacehud.ship_candidates[matches.ship_name].position = matches.ship_position
+  if matches.ship_position ~= '' then
+    spacehud.ship_candidates[matches.ship_name].position = matches.ship_position
+  end
   --Check to see if they were part of a battlegroup
   if matches.ship_leader_name ~= '' then
     spacehud.ship_candidates[matches.ship_name].leader_type = matches.ship_leader_type
