@@ -176,7 +176,7 @@
 			<colorTriggerFgColor>#000000</colorTriggerFgColor>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
-				<string>^(?&lt;ship_type&gt;[a-zA-Z0-9 \-]+) \'(?&lt;ship_name&gt;[a-zA-Z0-9 ]+)\' launches from the surface of [a-z A-Z]+, entering the starsystem at (?&lt;ship_x&gt;[0-9\-]+) (matches?&lt;ship_y&gt;[0-9\-]+) (?&lt;ship_z&gt;[0-9\-]+)$</string>
+				<string>^(?&lt;ship_type&gt;[a-zA-Z0-9 \-]+) \'(?&lt;ship_name&gt;[a-zA-Z0-9 ]+)\' launches from the surface of [a-z A-Z]+, entering the starsystem at (?&lt;ship_x&gt;[0-9\-]+) (?&lt;ship_y&gt;[0-9\-]+) (?&lt;ship_z&gt;[0-9\-]+)$</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>
