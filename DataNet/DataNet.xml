@@ -26,6 +26,28 @@ setPopup("main", {[[send("datanet ]] ..datanet.link .. [[")]], [[datanet.addTab(
 			</regexCodePropertyList>
 		</Trigger>
 		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>noCharge</name>
+			<script>disableTrigger('getData')
+disableTrigger('enableDisableGetData')
+enableTrigger('enableGetData')</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>Your datapad is out of charge.</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>0</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>noDatapad</name>
 			<script>disableTrigger('getData')
 disableTrigger('enableDisableGetData')
@@ -48,7 +70,7 @@ enableTrigger('enableGetData')</script>
 			</regexCodePropertyList>
 		</Trigger>
 		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>noCharge</name>
+			<name>noPage</name>
 			<script>disableTrigger('getData')
 disableTrigger('enableDisableGetData')
 enableTrigger('enableGetData')</script>
@@ -63,7 +85,7 @@ enableTrigger('enableGetData')</script>
 			<colorTriggerFgColor>#000000</colorTriggerFgColor>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
-				<string>Your datapad is out of charge.</string>
+				<string>Error: No such page.</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>0</integer>
@@ -103,7 +125,7 @@ end</script>
 else
   datanet.menu[datanet.menu.current.."console"]:clear()
 end
-cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Page loaded. Toggle window display with &lt;yellow&gt;showdata&lt;reset&gt; and &lt;yellow&gt;hidedata&lt;reset&gt;")
+
 enableTrigger('getData')
 enableTrigger('enableDisableGetData')
 disableTrigger('enableGetData')</script>
@@ -138,6 +160,9 @@ else
   datanet.load()
   moveCursorEnd("datanet.menu."..datanet.menu.current..".console")
 end
+cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Page loaded. Toggle window display with &lt;yellow&gt;showdata&lt;reset&gt; and &lt;yellow&gt;hidedata&lt;reset&gt;")
+cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Use &lt;red&gt;resetdata&lt;reset&gt; to reset capture triggers if the buffer breaks")
+
 disableTrigger('getData')
 disableTrigger('disableGetData')
 enableTrigger('enableGetData')
@@ -198,6 +223,21 @@ datanet.container:raiseAll()</script>
 			<command></command>
 			<packageName></packageName>
 			<regex>^showdata$</regex>
+		</Alias>
+		<Alias isActive="yes" isFolder="no">
+			<name>resetDatanet</name>
+			<script>enableTrigger('datanetLink')
+enableTrigger('noCharge')
+enableTrigger('noDatapad')
+enableTrigger('noPage')
+enableTrigger('enableGetData')
+
+disableTrigger('getData')
+disableTrigger('disableGetData')
+disableTrigger('enableDisableGetData')</script>
+			<command></command>
+			<packageName></packageName>
+			<regex>^resetdata$</regex>
 		</Alias>
 	</AliasPackage>
 	<ActionPackage />
