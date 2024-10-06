@@ -26,9 +26,10 @@ setPopup("main", {[[send("datanet ]] ..datanet.link .. [[")]], [[datanet.addTab(
 			</regexCodePropertyList>
 		</Trigger>
 		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>noCharge</name>
+			<name>endCapture</name>
 			<script>disableTrigger('getData')
 disableTrigger('enableDisableGetData')
+disableTrigger('multiDisableGetData')
 enableTrigger('enableGetData')</script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
@@ -42,52 +43,12 @@ enableTrigger('enableGetData')</script>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
 				<string>Your datapad is out of charge.</string>
-			</regexCodeList>
-			<regexCodePropertyList>
-				<integer>0</integer>
-			</regexCodePropertyList>
-		</Trigger>
-		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>noDatapad</name>
-			<script>disableTrigger('getData')
-disableTrigger('enableDisableGetData')
-enableTrigger('enableGetData')</script>
-			<triggerType>0</triggerType>
-			<conditonLineDelta>0</conditonLineDelta>
-			<mStayOpen>0</mStayOpen>
-			<mCommand></mCommand>
-			<packageName></packageName>
-			<mFgColor>#ff0000</mFgColor>
-			<mBgColor>#ffff00</mBgColor>
-			<mSoundFile></mSoundFile>
-			<colorTriggerFgColor>#000000</colorTriggerFgColor>
-			<colorTriggerBgColor>#000000</colorTriggerBgColor>
-			<regexCodeList>
 				<string>You need a datapad!</string>
-			</regexCodeList>
-			<regexCodePropertyList>
-				<integer>0</integer>
-			</regexCodePropertyList>
-		</Trigger>
-		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>noPage</name>
-			<script>disableTrigger('getData')
-disableTrigger('enableDisableGetData')
-enableTrigger('enableGetData')</script>
-			<triggerType>0</triggerType>
-			<conditonLineDelta>0</conditonLineDelta>
-			<mStayOpen>0</mStayOpen>
-			<mCommand></mCommand>
-			<packageName></packageName>
-			<mFgColor>#ff0000</mFgColor>
-			<mBgColor>#ffff00</mBgColor>
-			<mSoundFile></mSoundFile>
-			<colorTriggerFgColor>#000000</colorTriggerFgColor>
-			<colorTriggerBgColor>#000000</colorTriggerBgColor>
-			<regexCodeList>
 				<string>Error: No such page.</string>
 			</regexCodeList>
 			<regexCodePropertyList>
+				<integer>0</integer>
+				<integer>0</integer>
 				<integer>0</integer>
 			</regexCodePropertyList>
 		</Trigger>
@@ -128,6 +89,7 @@ end
 
 enableTrigger('getData')
 enableTrigger('enableDisableGetData')
+enableTrigger('multiDisableGetData')
 disableTrigger('enableGetData')</script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
@@ -165,6 +127,7 @@ cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Use &lt;red&gt;resetdata&lt;reset&gt
 
 disableTrigger('getData')
 disableTrigger('disableGetData')
+disableTrigger('multiDisableGetData')
 enableTrigger('enableGetData')
 datanet.container:show()
 datanet.container:raiseAll()</script>
@@ -187,8 +150,8 @@ datanet.container:raiseAll()</script>
 		</Trigger>
 		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>enableDisableGetData</name>
-			<script>enableTrigger('disableGetData')
-disableTrigger('enableDisableGetData')</script>
+			<script>disableTrigger('enableDisableGetData')
+enableTrigger('disableGetData')</script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
 			<mStayOpen>0</mStayOpen>
@@ -204,6 +167,47 @@ disableTrigger('enableDisableGetData')</script>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>0</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>multiDisableGetData</name>
+			<script>if datanet.menu.new ~= nil then
+  moveCursor("datanet.menu."..datanet.menu.new..".console", 0, 0)
+  datanet.menu.tabs[datanet.menu.new] = getCurrentLine("datanet.menu."..datanet.menu.new..".console")
+  datanet.load()
+  moveCursorEnd("datanet.menu."..datanet.menu.new..".console")
+  datanet.menu.new = nil
+else
+  moveCursor("datanet.menu."..datanet.menu.current..".console", 0, 0)
+  datanet.menu.tabs[datanet.menu.current] = getCurrentLine("datanet.menu."..datanet.menu.current..".console")
+  datanet.load()
+  moveCursorEnd("datanet.menu."..datanet.menu.current..".console")
+end
+cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Page loaded. Toggle window display with &lt;yellow&gt;showdata&lt;reset&gt; and &lt;yellow&gt;hidedata&lt;reset&gt;")
+cecho("\n[&lt;cyan&gt;DataNet&lt;reset&gt;] Use &lt;red&gt;resetdata&lt;reset&gt; to reset capture triggers if the buffer breaks")
+
+disableTrigger('getData')
+disableTrigger('disableGetData')
+disableTrigger('multiDisableGetData')
+disableTrigger('enableDisableGetData')
+enableTrigger('enableGetData')
+datanet.container:show()
+datanet.container:raiseAll()</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>[\d]+ items found</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
 	</TriggerPackage>
@@ -227,13 +231,12 @@ datanet.container:raiseAll()</script>
 		<Alias isActive="yes" isFolder="no">
 			<name>resetDatanet</name>
 			<script>enableTrigger('datanetLink')
-enableTrigger('noCharge')
-enableTrigger('noDatapad')
-enableTrigger('noPage')
+enableTrigger('endCapture')
 enableTrigger('enableGetData')
 
 disableTrigger('getData')
 disableTrigger('disableGetData')
+disableTrigger('multiDisableGetData')
 disableTrigger('enableDisableGetData')</script>
 			<command></command>
 			<packageName></packageName>
@@ -356,21 +359,21 @@ function datanet.load()
     
     if k ~= 1 then
       datanet.menu[k.."tabx"] = Geyser.Label:new({
-        x = "-15px", y = 0,
-        width = "15px",
+        x = "-25px", y = 0,
+        width = "25px",
         height = "100%",
         name = "datanet.menu."..k..".tabx",
-        message = "X"
+        message = "&lt;center&gt;X"
       }, datanet.menu[k.."tab"])
       datanet.menu[k.."tabx"]:setStyleSheet(datanet.button_style_x)
       datanet.menu[k.."tabx"]:setClickCallback("datanet.menu.x.click",k)  
     else
       datanet.menu[k.."taba"] = Geyser.Label:new({
         x = 0, y = 0,
-        width = "15px",
+        width = "25px",
         height = "100%",
         name = "datanet.menu."..k..".taba",
-        message = "+"
+        message = "&lt;center&gt;+"
       }, datanet.menu[k.."tab"])
       datanet.menu[k.."taba"]:setStyleSheet(datanet.button_style_a)
       datanet.menu[k.."taba"]:setClickCallback("datanet.menu.a.click",k)
