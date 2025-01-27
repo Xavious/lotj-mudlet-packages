@@ -470,7 +470,7 @@
 			<script>dumpShips()</script>
 			<command></command>
 			<packageName></packageName>
-			<regex>dumpships</regex>
+			<regex>^dumpships$</regex>
 		</Alias>
 		<Alias isActive="yes" isFolder="no">
 			<name>debug</name>
@@ -484,28 +484,28 @@
 			<script>hideSpace()</script>
 			<command></command>
 			<packageName></packageName>
-			<regex>hidespace</regex>
+			<regex>^hidespace$</regex>
 		</Alias>
 		<Alias isActive="yes" isFolder="no">
 			<name>showSpace</name>
 			<script>showSpace()</script>
 			<command></command>
 			<packageName></packageName>
-			<regex>showspace</regex>
+			<regex>^showspace$</regex>
 		</Alias>
 		<Alias isActive="yes" isFolder="no">
 			<name>clearShips</name>
 			<script>clearShips()</script>
 			<command></command>
 			<packageName></packageName>
-			<regex>clearships</regex>
+			<regex>^clearships$</regex>
 		</Alias>
 		<Alias isActive="yes" isFolder="no">
 			<name>help</name>
 			<script>help()</script>
 			<command></command>
 			<packageName></packageName>
-			<regex>helpspace</regex>
+			<regex>^helpspace$</regex>
 		</Alias>
 	</AliasPackage>
 	<ActionPackage />
@@ -1105,7 +1105,7 @@ function updateHud()
       send("info \""..sorted_ships[ship].type.." '"..sorted_ships[ship].name.."'\"")
     end
     local locateShip = function()
-      send("locateship \""..sorted_ships[ship].type.." '"..sorted_ships[ship].name.."'\"")
+      send("locateship "..sorted_ships[ship].name)
     end
     local targetShip = function()
       send("target "..sorted_ships[ship].name)
