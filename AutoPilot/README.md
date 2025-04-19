@@ -3,5 +3,4 @@ Automates flying between planets and/or cargo hauling. Supports multiple waypoin
 
 ### Usage
 
-
-`> ap help`]]
+`> ap help`
