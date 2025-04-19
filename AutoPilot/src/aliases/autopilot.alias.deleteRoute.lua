@@ -1,0 +1,1 @@
+autopilot.alias.deleteRoute()

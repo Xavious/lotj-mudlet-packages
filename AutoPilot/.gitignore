@@ -1,0 +1,6 @@
+# Ignore build directory and .output file
+build/
+.output
+
+# Ignore any file starting with "muddle" in the project root directory
+/muddle*

@@ -1,0 +1,62 @@
+[
+       {
+              "name": "autopilot.trigger.cargoPurchased",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multilineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "0",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "^You purchased (?\u003camount\u003e[\\d]+) units of (?\u003cresource\u003e[\\w ]+) for (?\u003ccost\u003e[\\d]+) credits.$",
+                            "type": "regex"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "autopilot.trigger.cargoSold",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multilineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "0",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "^You sell (?\u003camount\u003e[\\d]+) units of (?\u003cresource\u003e[\\w ]+) for (?\u003ccost\u003e[\\d]+) credits.$",
+                            "type": "regex"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "autopilot.trigger.refuel",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multilineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "0",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "You pay (?\u003ccost\u003e.*) credits to refuel the ship.",
+                            "type": "regex"
+                     }
+              ],
+              "script": ""
+       }
+]

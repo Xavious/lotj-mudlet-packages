@@ -1,0 +1,149 @@
+[
+       {
+              "name": "autopilot.alias.fly",
+              "isActive": "yes",
+              "regex": "^ap fly\\s*(?\u003cplanets\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.setShip",
+              "isActive": "yes",
+              "regex": "^ap set ship\\s*(?\u003cship\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.setEnter",
+              "isActive": "yes",
+              "regex": "^ap set enter\\s*(?\u003ccommands\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.setExit",
+              "isActive": "yes",
+              "regex": "^ap set exit\\s*(?\u003ccommands\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.setHatch",
+              "isActive": "yes",
+              "regex": "^ap set hatch\\s*(?\u003ccode\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.setCapacity",
+              "isActive": "yes",
+              "regex": "^ap set capacity\\s*(?\u003ccapacity\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.status",
+              "isActive": "yes",
+              "regex": "^ap status$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.saveShip",
+              "isActive": "yes",
+              "regex": "^ap save ship$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.saveRoute",
+              "isActive": "yes",
+              "regex": "^ap save route$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.clear",
+              "isActive": "yes",
+              "regex": "^ap clear$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.loadShip",
+              "isActive": "yes",
+              "regex": "^ap load ship\\s*(?\u003cindex\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.loadRoute",
+              "isActive": "yes",
+              "regex": "^ap load route\\s*(?\u003cindex\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.on",
+              "isActive": "yes",
+              "regex": "^ap on$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.off",
+              "isActive": "yes",
+              "regex": "^ap off$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.addStop",
+              "isActive": "yes",
+              "regex": "^ap add stop\\s*(?:(?\u003cplanet\u003e[\\w ]+))?(?::(?\u003cresource\u003e[\\w ]+))?$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.startCargo",
+              "isActive": "yes",
+              "regex": "^ap start cargo$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.stopCargo",
+              "isActive": "yes",
+              "regex": "^ap stop cargo$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.deleteShip",
+              "isActive": "yes",
+              "regex": "^ap delete ship\\s*(?\u003cindex\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.deleteRoute",
+              "isActive": "yes",
+              "regex": "^ap delete route\\s*(?\u003cindex\u003e.*)$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.help",
+              "isActive": "yes",
+              "regex": "^ap help$",
+              "script": "",
+              "isFolder": "no"
+       },
+       {
+              "name": "autopilot.alias.profit",
+              "isActive": "yes",
+              "regex": "^ap profit$",
+              "script": "",
+              "isFolder": "no"
+       }
+]
